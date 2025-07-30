@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" op="news">
+<head>
+    <meta name="referrer" content="origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect fill='%23ff6600' width='24' height='24'/><path fill='white' d='M6.5 6.5L12 12l5.5-5.5v3L12 15l-5.5-5.5v-3z'/></svg>">
+    <title>Hacker News</title>
+    <style>
+        body { font-family: Verdana, Geneva, sans-serif; font-size: 10pt; color: #000000; margin: 0; }
+        td { font-family: Verdana, Geneva, sans-serif; font-size: 10pt; color: #000000; }
+        .admin td { font-family: Verdana, Geneva, sans-serif; font-size: 8.5pt; color: #000000; }
+        .subtext td { font-family: Verdana, Geneva, sans-serif; font-size: 7pt; color: #828282; }
+        input { font-family: monospace; font-size: 10pt; }
+        input[type="submit"] { font-family: Verdana, Geneva, sans-serif; }
+        textarea { font-family: monospace; font-size: 10pt; }
+        a:link { color: #000000; text-decoration: none; }
+        a:visited { color: #828282; text-decoration: none; }
+        .default { font-family: Verdana, Geneva, sans-serif; font-size: 10pt; color: #000000; }
+        .admin { font-family: Verdana, Geneva, sans-serif; font-size: 8.5pt; color: #000000; }
+        .title { font-family: Verdana, Geneva, sans-serif; font-size: 10pt; color: #828282; overflow: hidden; }
+        .adtitle { font-family: Verdana, Geneva, sans-serif; font-size: 9pt; color: #828282; overflow: hidden; }
+        .subtext { font-family: Verdana, Geneva, sans-serif; font-size: 7pt; color: #828282; }
+        .hnname { margin-right: 5px; }
+        .pagetop { font-size: 10pt; color: #000000; }
+        .pagetop b { font-size: 10pt; color: #000000; }
+        .pagetop a { font-size: 10pt; color: #000000; }
+        .comhead { font-size: 8pt; color: #828282; }
+        .comhead a { color: #828282; }
+        .hnuser { color: #3c963c; }
+        .hnuser:visited { color: #3c963c; }
+        .score { color: #828282; }
+        .age { color: #828282; }
+        .age a { color: #828282; }
+        .rank { color: #828282; }
+        .sitebit { color: #828282; }
+        .sitestr { color: #828282; }
+        .titleline { overflow: hidden; }
+        .spacer { height: 5px; }
+        .morespace { height: 10px; }
+        .morelink { text-decoration: underline; color: #000000; }
+        .votearrow { width: 10px; height: 10px; border: 0px; margin: 3px 2px 6px; background: url("data:image/gif;base64,R0lGODlhCgAKAJEAAObm5v///wAAAAAAACH5BAEAAAIALAAAAAAKAAoAAAIRlI+py+0Po5y02ouz3rz7rxUAOw==") no-color; }
+        .votelinks { width: 14px; }
+        #hnmain { background-color: #f6f6ef; }
+        .subline { }
+        .yclinks { color: #828282; }
+        .yclinks a { color: #828282; }
+    </style>
+</head>
+<body>
+    <center>
+        <table id="hnmain" border="0" cellpadding="0" cellspacing="0" width="85%" bgcolor="#f6f6ef">
+            <tr>
+                <td bgcolor="#ff6600">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding:2px">
+                        <tr>
+                            <td style="width:18px;padding-right:4px">
+                                <a href="https://news.ycombinator.com">
+                                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect fill='%23ff6600' width='24' height='24'/><path fill='white' d='M6.5 6.5L12 12l5.5-5.5v3L12 15l-5.5-5.5v-3z'/></svg>" width="18" height="18" style="border:1px white solid; display:block">
+                                </a>
+                            </td>
+                            <td style="line-height:12pt; height:10px;">
+                                <span class="pagetop">
+                                    <b class="hnname"><a href="news">Hacker News</a></b>
+                                    <a href="newest">new</a> | 
+                                    <a href="front">past</a> | 
+                                    <a href="newcomments">comments</a> | 
+                                    <a href="ask">ask</a> | 
+                                    <a href="show">show</a> | 
+                                    <a href="jobs">jobs</a> | 
+                                    <a href="submit" rel="nofollow">submit</a>
+                                </span>
+                            </td>
+                            <td style="text-align:right;padding-right:4px;">
+                                <span class="pagetop"><a href="login?goto=news">login</a></span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr style="height:10px"></tr>
+            <tr id="bigbox">
+                <td>
+                    <table border="0" cellpadding="0" cellspacing="0" id="stories-container">
+                        <!-- Stories will be generated here -->
+                    </table>
+                    <table width="100%" cellspacing="0" cellpadding="1">
+                        <tr><td bgcolor="#ff6600"></td></tr>
+                    </table>
+                    <br>
+                    <center><span class="yclinks">
+                        <a href="newsguidelines.html">Guidelines</a> | 
+                        <a href="newsfaq.html">FAQ</a> | 
+                        <a href="lists">Lists</a> | 
+                        <a href="https://github.com/HackerNews/API">API</a> | 
+                        <a href="security.html">Security</a> | 
+                        <a href="https://www.ycombinator.com/legal/">Legal</a> | 
+                        <a href="https://www.ycombinator.com/apply/">Apply to YC</a> | 
+                        <a href="mailto:hn@ycombinator.com">Contact</a>
+                    </span><br><br>
+                    <form method="get" action="//hn.algolia.com/">
+                        Search: <input type="text" name="q" size="17" autocorrect="off" spellcheck="false" autocapitalize="off" autocomplete="off">
+                    </form></center>
+                </td>
+            </tr>
+        </table>
+    </center>
+
+    <script>
+        const templates = [
+            "Stop {action} in {language}",
+            "A Periodic Table of {techThing}",
+            "My {noun} Can Write {program} in {time}",
+            "Why {techThing} Is the Future of {industry}",
+            "I Built {program} Using Only {language} and {framework}",
+            "{company} Is Killing {techThing}",
+            "Show HN: {program} but for {industry}",
+            "Ask HN: Should I Learn {language} or {language}?",
+            "The Death of {techThing}: A Postmortem",
+            "How {company} Scales {techThing} to {number} Users",
+            "Why I'm Switching from {language} to {language}",
+            "{techThing} Considered Harmful",
+            "Show HN: I Made {program} in a Weekend",
+            "The Rise and Fall of {company}",
+            "Is {language} Ready for Production?",
+            "{techThing} vs {techThing}: A Developer's Perspective",
+            "I Reverse Engineered {company}'s {techThing}",
+            "Show HN: {program} – Like {company} but Open Source",
+            "Why {framework} Will Replace {framework}",
+            "Ask HN: What's Your Favorite {techThing}?",
+            "The Hidden Costs of {techThing}",
+            "How to {action} {techThing} at Scale",
+            "My Journey from {job} to {job}",
+            "{company} Open Sources Their {techThing}",
+            "Show HN: I Built {program} to Solve My Own Problem",
+            "Launch HN: {company} ({fundingRound}) – {program} for {industry}"
+        ];
+
+        const actions = ["refactoring", "debugging", "testing", "optimizing", "deploying", "monitoring", "scaling", "securing", "caching", "parsing", "serializing", "validating"];
+        const languages = ["JavaScript", "Python", "Rust", "Go", "TypeScript", "C++", "Java", "C#", "Ruby", "PHP", "Swift", "Kotlin", "Elixir", "Clojure", "Haskell", "OCaml", "Zig"];
+        const techThings = ["microservices", "containers", "APIs", "databases", "frameworks", "libraries", "algorithms", "data structures", "design patterns", "CI/CD", "DevOps", "cloud providers", "CSS preprocessors", "bundlers", "ORMs", "message queues"];
+        const nouns = ["cat", "toaster", "grandmother", "calculator", "coffee machine", "intern", "roommate", "AI assistant", "smartphone", "smart fridge", "dog", "8-year-old", "rubber duck"];
+        const programs = ["a web browser", "a compiler", "a game engine", "Tetris", "a cryptocurrency", "a social network", "an operating system", "a text editor", "a search engine", "a chat app", "Snake", "Pong", "a todo app"];
+        const times = ["10 minutes", "one weekend", "a lunch break", "45 seconds", "two hours", "overnight", "during commute", "while drunk", "in the bathroom", "using only voice commands"];
+        const industries = ["fintech", "healthcare", "education", "agriculture", "logistics", "entertainment", "retail", "manufacturing", "transportation", "real estate"];
+        const companies = ["Google", "Meta", "Amazon", "Microsoft", "Apple", "Netflix", "Uber", "Airbnb", "Tesla", "SpaceX", "OpenAI", "Anthropic", "Stripe", "Shopify"];
+        const frameworks = ["React", "Vue", "Angular", "Svelte", "Django", "Flask", "Rails", "Express", "Next.js", "Nuxt", "Laravel", "Spring", "ASP.NET"];
+        const jobs = ["junior developer", "senior engineer", "tech lead", "product manager", "designer", "DevOps engineer", "data scientist", "startup founder", "consultant"];
+        const numbers = ["10 million", "100k", "1 billion", "50 thousand", "500 million", "10 billion", "1 million", "250k"];
+        const fundingRounds = ["YC S25", "YC W25", "Series A", "Series B", "Seed", "Pre-Seed"];
+
+        function getRandomItem(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function generateHeadline() {
+            const template = getRandomItem(templates);
+            
+            // Create a map to store used values for each placeholder type
+            const usedValues = {};
+            
+            // Function to get a unique random item that hasn't been used yet
+            function getUniqueRandomItem(array, type) {
+                if (!usedValues[type]) {
+                    usedValues[type] = [];
+                }
+                
+                let availableItems = array.filter(item => !usedValues[type].includes(item));
+                
+                // If we've used all items of this type, reset the used list
+                if (availableItems.length === 0) {
+                    usedValues[type] = [];
+                    availableItems = array;
+                }
+                
+                const selectedItem = getRandomItem(availableItems);
+                usedValues[type].push(selectedItem);
+                return selectedItem;
+            }
+            
+            return template
+                .replace(/{action}/g, () => getUniqueRandomItem(actions, 'action'))
+                .replace(/{language}/g, () => getUniqueRandomItem(languages, 'language'))
+                .replace(/{techThing}/g, () => getUniqueRandomItem(techThings, 'techThing'))
+                .replace(/{noun}/g, () => getUniqueRandomItem(nouns, 'noun'))
+                .replace(/{program}/g, () => getUniqueRandomItem(programs, 'program'))
+                .replace(/{time}/g, () => getUniqueRandomItem(times, 'time'))
+                .replace(/{industry}/g, () => getUniqueRandomItem(industries, 'industry'))
+                .replace(/{company}/g, () => getUniqueRandomItem(companies, 'company'))
+                .replace(/{framework}/g, () => getUniqueRandomItem(frameworks, 'framework'))
+                .replace(/{job}/g, () => getUniqueRandomItem(jobs, 'job'))
+                .replace(/{number}/g, () => getUniqueRandomItem(numbers, 'number'))
+                .replace(/{fundingRound}/g, () => getUniqueRandomItem(fundingRounds, 'fundingRound'));
+        }
+
+        function generateRandomMeta() {
+            const points = Math.floor(Math.random() * 500) + 1;
+            const comments = Math.floor(Math.random() * 200);
+            const hoursAgo = Math.floor(Math.random() * 24) + 1;
+            const usernames = ["pg", "dang", "tptacek", "rayiner", "patio11", "jgrahamc", "tosh", "minimaxir", "throwaway" + Math.floor(Math.random() * 9999)];
+            const username = getRandomItem(usernames);
+            
+            return {
+                points: points,
+                comments: comments,
+                time: hoursAgo + (hoursAgo === 1 ? " hour ago" : " hours ago"),
+                username: username
+            };
+        }
+
+        function generateSiteUrl() {
+            const domains = ["github.com", "medium.com", "arxiv.org", "news.ycombinator.com", "techcrunch.com", "arstechnica.com", "wired.com", "openai.com", "anthropic.com"];
+            return getRandomItem(domains);
+        }
+
+        function generateStories() {
+            const container = document.getElementById('stories-container');
+            container.innerHTML = '';
+            
+            for (let i = 1; i <= 30; i++) {
+                const headline = generateHeadline();
+                const meta = generateRandomMeta();
+                const siteUrl = generateSiteUrl();
+                const storyId = 44700000 + Math.floor(Math.random() * 100000);
+                
+                // Story row
+                const storyRow = document.createElement('tr');
+                storyRow.className = 'athing submission';
+                storyRow.id = storyId;
+                
+                storyRow.innerHTML = `
+                    <td align="right" valign="top" class="title"><span class="rank">${i}.</span></td>
+                    <td valign="top" class="votelinks">
+                        <center>
+                            <a id='up_${storyId}' href='vote?id=${storyId}&how=up&goto=news'>
+                                <div class='votearrow' title='upvote'></div>
+                            </a>
+                        </center>
+                    </td>
+                    <td class="title">
+                        <span class="titleline">
+                            <a href="#">${headline}</a>
+                            <span class="sitebit comhead"> (<a href="from?site=${siteUrl}"><span class="sitestr">${siteUrl}</span></a>)</span>
+                        </span>
+                    </td>
+                `;
+                
+                container.appendChild(storyRow);
+                
+                // Meta row
+                const metaRow = document.createElement('tr');
+                metaRow.innerHTML = `
+                    <td colspan="2"></td>
+                    <td class="subtext">
+                        <span class="subline">
+                            <span class="score" id="score_${storyId}">${meta.points} points</span> by 
+                            <a href="user?id=${meta.username}" class="hnuser">${meta.username}</a> 
+                            <span class="age" title="2025-07-29T17:01:14 1753808474">
+                                <a href="item?id=${storyId}">${meta.time}</a>
+                            </span> 
+                            <span id="unv_${storyId}"></span> | 
+                            <a href="hide?id=${storyId}&goto=news">hide</a> | 
+                            <a href="item?id=${storyId}">${meta.comments}&nbsp;comments</a>
+                        </span>
+                    </td>
+                `;
+                
+                container.appendChild(metaRow);
+                
+                // Spacer row
+                const spacerRow = document.createElement('tr');
+                spacerRow.className = 'spacer';
+                spacerRow.style.height = '5px';
+                container.appendChild(spacerRow);
+            }
+            
+            // Add "More" link
+            const moreRow = document.createElement('tr');
+            moreRow.className = 'morespace';
+            moreRow.style.height = '10px';
+            container.appendChild(moreRow);
+            
+            const moreLinkRow = document.createElement('tr');
+            moreLinkRow.innerHTML = `
+                <td colspan="2"></td>
+                <td class='title'><a href='?p=2' class='morelink' rel='next'>More</a></td>
+            `;
+            container.appendChild(moreLinkRow);
+        }
+
+        // Generate initial stories when page loads
+        generateStories();
+    </script>
+</body>
+</html>
